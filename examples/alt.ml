@@ -1,19 +1,17 @@
 open Syncdf
 
-let not' = lift not
+let state_machine init transition input =
+	let state = cell [%dfg (lift init)] in 
+	state <~ [%dfg (lift transition) state input ]; 
+	state 
 
-let alt = 
-  let s = cell [%dfg true] in
-  link s [%dfg (not' s)];
-  s
+let alt = state_machine 1 (fun s _ -> 1 - s) (lift 0)
 
-let print_bool b = print_endline (if b then "true" else "false")
+let sum inp = 
+  state_machine 0 (fun s i -> i + s) inp
 
-let _ =
-	print_bool (peek alt);
-	step(); 
-	print_bool (peek alt);
-	step(); 
-	print_bool (peek alt);
-	step(); 
-	print_bool (peek alt) 
+let alt_sum = sum alt 
+
+let print_i i = print_int i; print_newline()
+
+let _ = step (); step (); step (); print_i (peek alt_sum) 
