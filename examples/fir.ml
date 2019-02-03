@@ -27,10 +27,7 @@ let out = avg3 input
 let print_f f = print_float f; print_newline()
 
 let _ = 
-  print_f (peek out);
   step();
-  print_f (peek out);
   step();
-  print_f (peek out);
   step();
   print_f (peek out)
