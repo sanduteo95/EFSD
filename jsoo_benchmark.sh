@@ -22,84 +22,29 @@ echo "\nPlain:"
 time node benchmark_build/js/cellular_automata.js 10 100
 echo "\nInc:"
 time node benchmark_build/js/inc/cellular_automata.js 10 100
-echo "\n---------- size 100, running 100 times"
-echo "\nPlain:"
-time node benchmark_build/js/cellular_automata.js 100 100
-echo "\nInc:"
-time node benchmark_build/js/inc/cellular_automata.js 100 100
-echo "\n---------- size 1000, running 100 times"
-echo "\nPlain:"
-time node benchmark_build/js/cellular_automata.js 1000 100
-echo "\nInc:"
-time node benchmark_build/js/inc/cellular_automata.js 1000 100
 
 ########## benchmarks for incremental ##########
 echo "\n########## incremental ##########"
-echo "---------- with 1000 nodes"
+echo "---------- with 100 nodes"
 echo "\nPlain:"
-time node benchmark_build/js/incremental.js 1000
+time node benchmark_build/js/incremental.js 100
 echo "\nInc:"
-time node benchmark_build/js/inc/incremental.js 1000
-echo "\n---------- with 10000 nodes"
-echo "\nPlain:"
-time node benchmark_build/js/incremental.js 10000
-echo "\nInc:"
-time node benchmark_build/js/inc/incremental.js 10000
-echo "\n---------- with 100000 nodes"
-echo "\nPlain:"
-time node benchmark_build/js/incremental.js 100000
-echo "\nInc:"
-time node benchmark_build/js/inc/incremental.js 100000
-echo "\n---------- with 1000000 nodes"
-echo "\nPlain:"
-time node benchmark_build/js/incremental.js 1000000
-echo "\nInc:"
-time node benchmark_build/js/inc/incremental.js 1000000
-echo "\n---------- with 10000000 nodes"
-echo "\nPlain:"
-time node benchmark_build/js/incremental.js 10000000
-echo "\nInc:"
-time node benchmark_build/js/inc/incremental.js 10000000
+time node benchmark_build/js/inc/incremental.js 100
 
 ########## benchmarks for light control ##########
 echo "\n########## light_control ##########"
-echo "---------- with 100000 commands"
+echo "---------- with 100 commands"
 echo "\nPlain:"
-time node benchmark_build/js/light_control.js 100000
+time node benchmark_build/js/light_control.js 100
 echo "\nInc:"
-time node benchmark_build/js/inc/light_control.js 100000
-echo "---------- with 1000000 commands"
-echo "\nPlain:"
-time node benchmark_build/js/light_control.js 1000000
-echo "\nInc:"
-time node benchmark_build/js/inc/light_control.js 1000000
-echo "---------- with 10000000 commands"
-echo "\nPlain:"
-time node benchmark_build/js/light_control.js 10000000
-echo "\nInc:"
-time node benchmark_build/js/inc/light_control.js 10000000
+time node benchmark_build/js/inc/light_control.js 100
 
 ########## benchmarks for planets ##########
 echo "\n########## planets ##########"
-echo "---------- with 10 planets, running 10000 times"
+echo "---------- with 10 planets, running 100 times"
 echo "\nPlain:"
-time node benchmark_build/js/planets.js 10 10000
+time node benchmark_build/js/planets.js 10 100
 echo "\nInc:"
-time node benchmark_build/js/inc/planets.js 10 10000
-echo "---------- with 10 planets, running 100000 times" 
-echo "\nPlain:"
-time node benchmark_build/js/planets.js 10 100000
-echo "\nInc:"
-time node benchmark_build/js/inc/planets.js 10 100000
-echo "\n---------- with 100 planets, running 10000 times"
-echo "\nPlain:"
-time node benchmark_build/js/planets.js 100 10000
-echo "\nInc:"
-time node benchmark_build/js/inc/planets.js 100 10000
-echo "\n---------- with 100 planets, running 100000 times"
-echo "\nPlain:"
-time node benchmark_build/js/planets.js 100 100000
-echo "\nInc:"
-time node benchmark_build/js/inc/planets.js 100 100000
+time node benchmark_build/js/inc/planets.js 10 100
 
 
