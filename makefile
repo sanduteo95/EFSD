@@ -4,10 +4,13 @@ all:
 	ocamlc -I lib/ -c lib/plain/syncdf.mli
 	ocamlc -I lib/ -c lib/incremental/syncdf.mli
 	mkdir example_build
+	mkdir example_build/js
 	mkdir benchmark_build
 	mkdir benchmark_build/rml
 	mkdir benchmark_build/inc
 	mkdir benchmark_build/incjs
+	mkdir benchmark_build/js
+	mkdir benchmark_build/js/inc
 
 clean:
 	rm -rf _build/

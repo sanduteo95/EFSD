@@ -17,10 +17,11 @@ let add l v =
 let add_unique l v = 
 	let l_rep = Obj.repr l in
 	let rec add_aux curr =
-		match Obj.is_int curr with
-		| true  -> add l v
-		| false -> let x = Obj.obj (Obj.field curr 0) in
-				   if v == x then l else add_aux (Obj.field curr 1)
+		if Obj.is_int curr then
+			add l v
+		else
+			let x = Obj.obj (Obj.field curr 0) in
+			if v == x then l else add_aux (Obj.field curr 1)
 	in
 	add_aux l_rep
 
@@ -28,15 +29,16 @@ let add_unique l v =
 let remove l v = 
 	let l_rep = Obj.repr l in
 	let rec remove_aux curr =
-		match Obj.is_int curr with
-		| true  -> l
-		| false -> let x = Obj.obj (Obj.field curr 0) in
-				   if v == x 
-				   then (let next = Obj.field curr 1 in
-				   		Obj.set_field curr 0 (Obj.field next 0);
-				   		Obj.set_field curr 1 (Obj.field next 1);
-				   		remove_aux curr)
-				   else remove_aux (Obj.field curr 1) 
+		if Obj.is_int curr then
+			l
+		else
+			let x = Obj.obj (Obj.field curr 0) in
+			if v == x 
+			then (let next = Obj.field curr 1 in
+				Obj.set_field curr 0 (Obj.field next 0);
+				Obj.set_field curr 1 (Obj.field next 1);
+				remove_aux curr)
+			else remove_aux (Obj.field curr 1) 
 	in
 	remove_aux l_rep 
 
@@ -44,10 +46,11 @@ let remove l v =
 let rec fold f b l = 
 	let l_rep = Obj.repr l in
 	let rec fold_aux b curr =
-		match Obj.is_int curr with
-		| true  -> b
-		| false -> let x = Obj.obj (Obj.field curr 0) in
-				   fold_aux (f b x) (Obj.field curr 1)
+		if Obj.is_int curr then
+			b
+		else
+			let x = Obj.obj (Obj.field curr 0) in
+			fold_aux (f b x) (Obj.field curr 1)
 	in
 	fold_aux b l_rep
 

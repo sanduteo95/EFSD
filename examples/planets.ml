@@ -116,5 +116,4 @@ let _ =
 	List.iter (fun p -> link p [%dfg (lift compute_pos) p (lift all)]) all; (* create the graph *)
 	for i = 1 to total_step do
 		step();
-		update_display all
 	done

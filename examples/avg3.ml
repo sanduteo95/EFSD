@@ -19,14 +19,10 @@ let input =
 
 let avg3 = fir3 (fun _ x -> x /. 3.0) input
 
-
 let print_f f = print_float f; print_newline()
 
 let _ = 
-  print_f (peek avg3);
 	step();
-  print_f (peek avg3);
 	step();
-  print_f (peek avg3);
 	step();
 	print_f (peek avg3)
