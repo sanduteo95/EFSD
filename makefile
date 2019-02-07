@@ -20,3 +20,4 @@ clean:
 	find lib/ -name "*.cmi" -type f -delete
 	find lib/ -name "*.cmx" -type f -delete
 	find lib/ -name "*.o" -type f -delete
+	find lib/ -name "*.cmo" -type f -delete
